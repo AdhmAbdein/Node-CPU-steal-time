@@ -1,0 +1,10 @@
+
+groups:
+  - name: cpu_steal_time
+    rules:
+      - record: cpu_steal_time_rule
+        expr: rate(node_cpu_seconds_total{mode = "steal"}[1m]) * 100
+        labels:
+          node1: cpu_steal_time
+  #CPU Steal Time refers to the amount of time a virtual machine (VM) waits for the hypervisor to allocate CPU resources from the physical host
+

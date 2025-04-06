@@ -1,0 +1,12 @@
+groups:
+  - name: cpu_steal_time
+    rules:
+      - alert: cpu_steal_time_alert
+        expr: cpu_steal_time_rule > 10
+        for: 1m
+        labels:
+          node1: cpu_steal_time
+        annotations:
+          summary: "cpu steal time in {{ $labels.intance }}"
+          description: "cpu steal time is {{ $value }}"
+                     
